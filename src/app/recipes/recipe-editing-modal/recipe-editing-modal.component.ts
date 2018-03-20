@@ -34,6 +34,7 @@ export class RecipeEditingModalComponent implements OnInit {
       this.model = new RecipeModel();
       this.actionLabel = 'Add';
     } else {
+      this.model = JSON.parse(JSON.stringify(this.model));
       this.isNew = false;
       this.actionLabel = 'Save Changes';
     }

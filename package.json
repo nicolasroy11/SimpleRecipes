@@ -10,8 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "api": "json-server --watch api/db.json --port 9001",
-    "start-all": "npm run start & npm run api",
-    "start-test": "concurrently --kill-others \"npm run api\" \"npm run start\""
+    "start-all": "concurrently --kill-others \"npm run api\" \"npm run start\""
   },
   "private": true,
   "dependencies": {
