@@ -1,0 +1,18 @@
+<!-- <div id="nav"></div> -->
+<mat-toolbar id="nav">
+  <mat-toolbar-row>
+    <span id="app-title">Simple Recipes</span>
+    <div class="fill-remaining-space"></div>
+    <div class="right-justified">
+      <button mat-icon-button class="icon-btns">
+        <i class="material-icons">list</i>
+      </button>
+      <button (click)="onAddNewRecipe()" mat-icon-button class="icon-btns">
+        <i class="material-icons">add</i>
+      </button>
+      <button (click)="onToggleFilterPanel()" mat-icon-button class="icon-btns">
+        <i class="material-icons">dehaze</i>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

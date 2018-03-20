@@ -1,0 +1,63 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "title": "Cooked Egg",
+      "descr": "Take 2 eggs and cook them",
+      "category": "breakfast"
+    },
+    {
+      "title": "Best new 2",
+      "category": "lunch",
+      "descr": "ddd",
+      "id": 2
+    },
+    {
+      "title": "rrr",
+      "category": "snacks",
+      "descr": "rrrrrrr",
+      "id": 3
+    }
+  ],
+  "appSettings": {
+    "appTitle": "Simple Recipes",
+    "constants": {
+      "categories": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "snacks",
+        "soups",
+        "vegetarian",
+        "salads",
+        "baking",
+        "desserts",
+        "drinks"
+      ]
+    },
+    "enums": {
+      "categories": {
+        "1": "breakfast",
+        "2": "lunch",
+        "3": "dinner",
+        "4": "snacks",
+        "5": "soups",
+        "6": "vegetarian",
+        "7": "salads",
+        "8": "baking",
+        "9": "desserts",
+        "10": "drinks",
+        "breakfast": 1,
+        "lunch": 2,
+        "dinner": 3,
+        "snacks": 4,
+        "soups": 5,
+        "vegetarian": 6,
+        "salads": 7,
+        "baking": 8,
+        "desserts": 9,
+        "drinks": 10
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-title class="title">{{recipe.title}}</mat-card-title>
+  <mat-card-content class="recipe-list-item">
+    <img class="recipe-img" src="/assets/images/uxrecipe-logo.png" />
+    <div class="descr">{{recipe.descr}}</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="onRecipeSelected(recipe.id)" mat-button mat-raised-button>Read more</button>
+    <button (click)="onEditSelected(recipe)" mat-icon-button><i class="material-icons">create</i></button>
+    <button (click)="onDeleteRecipe(recipe.id)" mat-icon-button><i class="material-icons" style="color:red">delete</i></button>
+  </mat-card-actions>
+</mat-card>

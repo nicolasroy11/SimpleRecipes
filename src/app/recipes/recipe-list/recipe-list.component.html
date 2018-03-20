@@ -1,0 +1,18 @@
+<app-navigation (toggleFilterPanel)="opened = $event"></app-navigation>
+<div *ngIf="recipes" id="recipes-container">
+  <app-recipe-list-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-list-item>
+</div>
+<div id="sliding-filter-panel" [ngClass]="{show: opened === true}">
+  <div class="categorySearchString">
+    <input placeholder="search" matInput [(ngModel)]="categorySearchString" (ngModelChange)="filterCategories()" type="text">
+    <button mat-icon-button (click)="categorySearchString=''; filterCategories(); resetRecipes();">
+      <i class="material-icons">clear</i>
+    </button>
+  </div>
+  <div *ngFor="let category of filteredCategories">
+    <a class="category-item" (click)="selectedCategory = category; getRecipes();">
+      <img class="category-image" src="/assets/images/{{category}}.png">
+      <p>{{category}}</p>
+    </a>
+  </div>
+</div>
