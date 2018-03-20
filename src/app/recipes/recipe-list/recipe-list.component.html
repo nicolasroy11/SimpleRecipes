@@ -12,7 +12,7 @@
   <div *ngFor="let category of filteredCategories">
     <a class="category-item" (click)="selectedCategory = category; getRecipes();">
       <img class="category-image" src="/assets/images/{{category}}.png">
-      <p>{{category}}</p>
+      <p><span style="font-weight:bold; font-size:1.2em">{{categorySearchString}}</span>{{category.replace(categorySearchString, "")}}</p>
     </a>
   </div>
 </div>
