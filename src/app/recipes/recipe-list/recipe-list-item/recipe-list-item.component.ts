@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { RecipeModel } from '../../../../models/recipe.model';
 import { Router } from '@angular/router';
 import { RecipeService } from '../../recipe.service';
@@ -13,6 +13,7 @@ import { RecipeEditingModalComponent } from '../../recipe-editing-modal/recipe-e
 export class RecipeListItemComponent implements OnInit {
 
   @Input() public recipe: RecipeModel;
+  @Output() RecipeCollectionEdited = new EventEmitter();
 
   constructor(
     private _router: Router,
@@ -31,7 +32,7 @@ export class RecipeListItemComponent implements OnInit {
     editModal.subscribe((updatedRecipe) => {
       if (recipe) {
         this._recipeService.update(updatedRecipe).subscribe(() => {
-          window.location.reload();
+          this.RecipeCollectionEdited.emit();
         });
       }
     });
@@ -39,7 +40,7 @@ export class RecipeListItemComponent implements OnInit {
 
   public onDeleteRecipe(id: number) {
     this._recipeService.delete(id).subscribe(() => {
-      window.location.reload();
+      this.RecipeCollectionEdited.emit();
     });
   }
 

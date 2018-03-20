@@ -3,6 +3,7 @@ import { DialogService } from '../../libs/dialog/dialog.service';
 import { RecipeService } from '../recipe.service';
 import { RecipeEditingModalComponent } from '../recipe-editing-modal/recipe-editing-modal.component';
 import { RecipeModel } from '../../../models/recipe.model';
+import { AppSettings } from '../../app-settings/app-settings';
 
 @Component({
   selector: 'app-navigation',
@@ -11,11 +12,14 @@ import { RecipeModel } from '../../../models/recipe.model';
 })
 export class NavigationComponent implements OnInit {
   @Output() toggleFilterPanel = new EventEmitter<boolean>();
+  @Output() newRecipeAdded = new EventEmitter();
   public isFilterPanelOpen = false;
+  public appTitle: string = this._appSettings.constants.appTitle;
 
   constructor(
     private _dialogService: DialogService,
-    private _recipeService: RecipeService) { }
+    private _recipeService: RecipeService,
+    private _appSettings: AppSettings) { }
 
   ngOnInit() {
   }
@@ -25,7 +29,7 @@ export class NavigationComponent implements OnInit {
     editModal.subscribe((recipe) => {
       if (recipe) {
         this._recipeService.postNew(recipe).subscribe(() => {
-          window.location.reload();
+          this.onNewRecipeAdded();
         });
       }
     });
@@ -34,6 +38,10 @@ export class NavigationComponent implements OnInit {
   public onToggleFilterPanel() {
     this.isFilterPanelOpen = !this.isFilterPanelOpen;
     this.toggleFilterPanel.emit(this.isFilterPanelOpen);
+  }
+
+  public onNewRecipeAdded() {
+    this.newRecipeAdded.emit();
   }
 
 }

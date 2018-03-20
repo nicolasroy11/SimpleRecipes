@@ -1,6 +1,6 @@
-<app-navigation (toggleFilterPanel)="opened = $event"></app-navigation>
+<app-navigation (toggleFilterPanel)="opened = $event" (newRecipeAdded)="getRecipes()"></app-navigation>
 <div *ngIf="recipes" id="recipes-container">
-  <app-recipe-list-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-list-item>
+  <app-recipe-list-item *ngFor="let recipe of recipes" (RecipeCollectionEdited)="getRecipes()" [recipe]="recipe"></app-recipe-list-item>
 </div>
 <div id="sliding-filter-panel" [ngClass]="{show: opened === true}">
   <div class="categorySearchString">
